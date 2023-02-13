@@ -1,0 +1,13 @@
+.BookResultGrid{
+    width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    .BookResultGrid_label{
+     font-size: 15px;
+     padding: 20px;
+    }
+    .BookResultGrid_container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+}
