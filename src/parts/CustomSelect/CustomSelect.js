@@ -4,29 +4,26 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-export default function CustomSelect() {
+export default function CustomSelect(props) {
   const [age, setAge] = React.useState('');
 
   const handleChange = (event) => {
     setAge(event.target.value);
+    props.setSorting(event.target.value);
   };
 
   return (
-    <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-      <InputLabel id="demo-select-small">Sort</InputLabel>
+    <FormControl sx={{ width: 300 }}>
+      <InputLabel id="demo-simple-select-label">Sort by</InputLabel>
       <Select
-        labelId="demo-select-small"
-        id="demo-select-small"
+        labelId="demo-simple-select-label"
+        id="demo-simple-select"
         value={age}
         label="Age"
         onChange={handleChange}
       >
-        <MenuItem value="">
-          <em>None</em>
-        </MenuItem>
-        <MenuItem value={"rating"}>by rating</MenuItem>
-        <MenuItem value={"alphabet"}>by alphabet</MenuItem>
-        <MenuItem value={"relevance"}>by relevance</MenuItem>
+        <MenuItem value={'relevance'}>relevance</MenuItem>
+        <MenuItem value={'newest'}>newest</MenuItem>
       </Select>
     </FormControl>
   );

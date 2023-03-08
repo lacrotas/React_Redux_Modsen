@@ -3,12 +3,21 @@
     width: 280px;
     border-radius: 5px;
     text-align: center;
+    padding-top: 10px;
+    @media screen and (max-width: 640px) {
+        width: 200px;
+    }
+    @media screen and (max-width: 460px) {
+        width: 80%;
+        margin-left: 10%;
+    }
     &:hover{
         cursor: pointer;
         outline: 1px solid #000;
     }
     .BookGridPreview_image{
         width: 70%;
+        box-shadow: 5px 5px 5px 1px rgba(7, 7, 7, 0.2);
         padding: 20px 0;
     }
     .BookGridPreview_container{
@@ -17,6 +26,7 @@
         text-align: left;
         .Container_paragraph--kategory{
             font-size: 15px;
+            padding-top: 10px;
             color: rgb(89, 89, 89);
         }
         .Container_paragraph--name{
