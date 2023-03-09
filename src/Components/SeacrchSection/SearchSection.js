@@ -11,15 +11,14 @@ import SearchIcon from '@mui/icons-material/Search';
 
 function SearchSection() {
   const [bookName, setBookName] = useState("");
-  const [bookSorting, setBookSort] = useState("");
+  const [bookSorting, setBookSort] = useState("relevance");
   const [bookKategory, setBookKategory] = useState("");
-  // this will be add to .env soon
-  const [APIKey, setAPIKey] = useState("AIzaSyDGnD4TeyE13Um-gOReRiGYFOhH9dzGsO8");
+
   const dispatch = useDispatch();
 
   function handleSubmit(event) {
-    event.preventDefault();
-    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + bookName + "&key=" + APIKey+"&maxResults=40")//"&maxResults=40"
+    event.preventDefault();                                          //+ "subject:"+ bookKategory (filter by category break all search)
+    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + bookName  +"&orderBy=" + bookSorting + "&key=" + process.env.REACT_APP_API_KEY +"&maxResults=30")
       .then(data => {
         setBookArray(data.data.items);
         console.log(data.data.items);
@@ -53,8 +52,8 @@ function SearchSection() {
           <TextField className='container_input---search' label="Book name" variant="outlined" onChange={handleChange} required />
           <button className='container_button---submit' type="submit"><SearchIcon /></button>
           <div className='container_select'>
-            <SeacrhComboBox setKategory={setBookSort}/>
-            <CustomSelect  setSorting={setBookKategory}/>
+            <SeacrhComboBox setKategory={setBookKategory}/>
+            <CustomSelect  setSorting={setBookSort}/>
           </div>
         </form>
       </div>
