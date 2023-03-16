@@ -7,10 +7,6 @@
      font-weight: 700;
      padding: 20px;
     }
-    .BookResultGrid_button{
-        float: left;
-        margin: 10px 0;
-    }
     .BookResultGrid_container{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

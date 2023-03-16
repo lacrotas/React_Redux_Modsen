@@ -7,7 +7,7 @@ const initialState = {
         description: null,
         bookname: null,
         imageSrc: null,
-        category:null,
+        category: null,
     }]
 }
 
@@ -16,19 +16,24 @@ const bookSlice = createSlice({
     initialState,
     reducers: {
         setBook(state, action) {
-            if(state.books[0].id!=null){
-            state.books.push(action.payload);
-            }else{
+            if (state.books[0].id != null) {
+                state.books.push(action.payload);
+            } else {
                 state.books[0] = action.payload;
             }
         },
-        removeBook(state){
+        removeBook(state) {
             state.books = initialState.books;
+        },
+        getBookById(state, action) {
+               if(action.payload < state.books.length){
+                return state.books[action.payload];
+               }else{ return false}
         }
     },
 })
 
 
-export const { setBook, removeBook } = bookSlice.actions;
+export const { setBook, removeBook, getBookById } = bookSlice.actions;
 
 export default bookSlice.reducer;
