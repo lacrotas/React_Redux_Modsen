@@ -4,8 +4,7 @@ function LoadingModalWindow() {
 
     return (
         <div className="LoadingModalWindow">
-            <div className="spinner">
-            </div>
+            <div className="spinner"/>
         </div>
     );
 }
